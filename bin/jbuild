@@ -1,0 +1,8 @@
+(executables
+ ((names (main))
+  (libraries (unix jbuilder jbuilder_cmdliner))
+  (preprocess no_preprocessing)))
+
+(install
+ ((section bin)
+  (files ((main.exe as jbuilder)))))
