@@ -1,0 +1,56 @@
+{
+    "name": "jbuilder-actual",
+    "exportedEnvVars": {
+        "jbuilder_version": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "1.0.02"
+        },
+        "CAML_LD_LIBRARY_PATH": {
+            "global": true,
+            "resolveAsRelativePath": true,
+            "globalCollisionBehavior": "joinPath",
+            "val": "./_build/ocamlfind/lib/stublibs"
+        },
+        "FINDLIB": {
+            "global": true,
+            "resolveAsRelativePath": true,
+            "globalCollisionBehavior": "joinPath",
+            "val": "./_build/ocamlfind/lib"
+        },
+        "jbuilder_installed": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "true"
+        },
+        "version": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "1.0.02"
+        },
+        "PATH": {
+            "global": true,
+            "resolveAsRelativePath": true,
+            "globalCollisionBehavior": "joinPath",
+            "val": "./_build/ocamlfind/bin"
+        },
+        "jbuilder_enable": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "enable"
+        }
+    },
+    "version": "1.0.02",
+    "dependencies": {
+        "substs": "https://github.com/yunxing/substs.git",
+        "nopam": "*",
+        "opam-installer-bin": "https://github.com/yunxing/opam-installer-bin.git",
+        "dependency-env": "*"
+    },
+    "scripts": {
+        "postinstall": "eval $(dependencyEnv) && nopam && ocaml bootstrap.ml && ./boot.exe -j 4 && (opam-installer --prefix=$opam_prefix || true)"
+    },
+    "peerDependencies": {
+        "@opam-alpha/ocaml": ">= 4.02.3"
+    }
+}
